@@ -1,18 +1,15 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  // Отключаем, пока не установлен critters (часто ломает сборку)
-  // experimental: { optimizeCss: true },
+  // Исправляет 404 на многих серверах
+  trailingSlash: true,
 
   images: {
     formats: ['image/avif', 'image/webp'],
-    // ВАЖНО: для локальных картинок из /public — remotePatterns не нужен
-    // Добавляем только если используете внешние URL
     remotePatterns: [],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-    // Разрешаем оба хоста — домен и IP (на время разработки)
-    // Раскомментировать если нужен IP:
-    // unoptimized: true,  // временно для диагностики
+    // ВКЛЮЧАЕМ ДЛЯ ПРОВЕРКИ (если картинки появятся - дело в оптимизаторе)
+    unoptimized: true,
   },
 
   compress: true,
@@ -26,12 +23,6 @@ const nextConfig: NextConfig = {
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'DENY' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-        ],
-      },
-      {
-        source: '/fonts/(.*)',
-        headers: [
-          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
       },
     ]
