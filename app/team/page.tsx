@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { LeadForm } from '@/components/sections/LeadForm'
-import { Footer }   from '@/components/layout/Footer'
+import Link              from 'next/link'
+import { LeadForm }      from '@/components/sections/LeadForm'
+import { Footer }        from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   title: 'Команда AdsMsk — специалисты по рекламе и автоматизации',
@@ -69,16 +69,114 @@ const TEAM = [
 ]
 
 const CULTURE = [
-  { icon: '🎯', title: 'Результат прежде всего',  desc: 'KPI в договоре. Не выполнили — компенсируем.' },
-  { icon: '📊', title: 'Прозрачность',             desc: 'Еженедельные отчёты с реальными цифрами, без воды.' },
-  { icon: '⚡', title: 'Скорость',                 desc: 'Запуск за 72 часа. Никакой бюрократии.' },
-  { icon: '🔄', title: 'Постоянное улучшение',     desc: 'A/B-тесты, оптимизация, масштабирование лучших связок.' },
+  {
+    icon: '🎯',
+    title: 'Результат прежде всего',
+    desc: 'KPI в договоре. Не выполнили — компенсируем.',
+  },
+  {
+    icon: '📊',
+    title: 'Прозрачность',
+    desc: 'Еженедельные отчёты с реальными цифрами, без воды.',
+  },
+  {
+    icon: '⚡',
+    title: 'Скорость',
+    desc: 'Запуск за 72 часа. Никакой бюрократии.',
+  },
+  {
+    icon: '🔄',
+    title: 'Постоянное улучшение',
+    desc: 'A/B-тесты, оптимизация, масштабирование лучших связок.',
+  },
 ]
+
+function TeamCard({
+  member,
+}: {
+  member: (typeof TEAM)[number]
+}) {
+  return (
+    <div
+      className="flex flex-col p-7 rounded-2xl"
+      style={{
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(255,255,255,0.07)',
+        transition: 'border-color 0.3s, transform 0.3s, box-shadow 0.3s',
+      }}
+    >
+      <div className="flex items-center gap-4 mb-5">
+        <div
+          className="w-14 h-14 rounded-2xl flex items-center justify-center
+                     text-lg font-bold text-white flex-shrink-0"
+          style={{ background: member.gradient }}
+        >
+          {member.initials}
+        </div>
+        <div>
+          <h3 className="font-bold text-white text-sm leading-snug">
+            {member.name}
+          </h3>
+          <p
+            className="text-xs mt-0.5 font-semibold"
+            style={{ color: '#00D4FF' }}
+          >
+            {member.role}
+          </p>
+        </div>
+      </div>
+
+      <p
+        className="text-sm leading-relaxed flex-1 mb-5"
+        style={{ color: 'rgba(232,230,255,0.55)' }}
+      >
+        {member.desc}
+      </p>
+
+      <div className="flex flex-wrap gap-2">
+        {member.tags.map((tag) => (
+          <span
+            key={tag}
+            className="text-xs font-medium px-2.5 py-1 rounded-lg"
+            style={{
+              background: 'rgba(108,71,255,0.12)',
+              color: '#A594FF',
+              border: '1px solid rgba(108,71,255,0.20)',
+            }}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function CultureCard({ item }: { item: (typeof CULTURE)[number] }) {
+  return (
+    <div
+      className="text-center p-7 rounded-2xl"
+      style={{
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(255,255,255,0.07)',
+      }}
+    >
+      <div className="text-4xl mb-4">{item.icon}</div>
+      <h3 className="font-bold text-white mb-2 text-sm">{item.title}</h3>
+      <p
+        className="text-sm leading-relaxed"
+        style={{ color: 'rgba(232,230,255,0.50)' }}
+      >
+        {item.desc}
+      </p>
+    </div>
+  )
+}
 
 export default function TeamPage() {
   return (
     <>
-      {/* Hero */}
+      {/* ── Hero ── */}
       <section
         style={{
           paddingTop: '140px',
@@ -89,21 +187,30 @@ export default function TeamPage() {
       >
         <div className="container mx-auto px-4 text-center">
           <nav
-            className="flex justify-center items-center gap-2 text-sm mb-8"
             aria-label="Breadcrumb"
+            className="flex justify-center items-center gap-2 text-sm mb-8"
             style={{ color: 'rgba(232,230,255,0.40)' }}
           >
-            <Link href="/" className="transition-colors duration-200 hover:text-white">
+            <Link
+              href="/"
+              className="transition-colors duration-200 hover:text-white"
+            >
               Главная
             </Link>
             <svg
-              className="w-4 h-4"
-              fill="none"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
+              fill="none"
               stroke="currentColor"
               aria-hidden="true"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
             </svg>
             <span style={{ color: 'rgba(232,230,255,0.70)' }}>Команда</span>
           </nav>
@@ -137,96 +244,24 @@ export default function TeamPage() {
             style={{ color: 'rgba(232,230,255,0.55)' }}
           >
             Специалисты-практики с реальными кейсами.
-            Каждый эксперт в своей области — без универсалов-дилетантов.
+            Каждый — эксперт в своей области.
           </p>
         </div>
       </section>
 
-      {/* Команда */}
-      <section
-        className="py-20"
-        style={{ background: '#080718' }}
-      >
+      {/* ── Team grid ── */}
+      <section className="py-20" style={{ background: '#080718' }}>
         <div className="container mx-auto px-4">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TEAM.map((member, i) => (
-              <div
-                key={i}
-                className="group flex flex-col p-7 rounded-2xl transition-all duration-300"
-                style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLElement
-                  el.style.borderColor = 'rgba(108,71,255,0.35)'
-                  el.style.transform = 'translateY(-4px)'
-                  el.style.boxShadow = '0 20px 60px rgba(0,0,0,0.40)'
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLElement
-                  el.style.borderColor = 'rgba(255,255,255,0.07)'
-                  el.style.transform = 'translateY(0)'
-                  el.style.boxShadow = 'none'
-                }}
-              >
-                {/* Аватар */}
-                <div className="flex items-center gap-4 mb-5">
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center
-                               text-lg font-bold text-white flex-shrink-0"
-                    style={{ background: member.gradient }}
-                  >
-                    {member.initials}
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-white text-sm leading-snug">
-                      {member.name}
-                    </h3>
-                    <p
-                      className="text-xs mt-0.5 font-semibold"
-                      style={{ color: '#00D4FF' }}
-                    >
-                      {member.role}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Описание */}
-                <p
-                  className="text-sm leading-relaxed flex-1 mb-5"
-                  style={{ color: 'rgba(232,230,255,0.55)' }}
-                >
-                  {member.desc}
-                </p>
-
-                {/* Теги */}
-                <div className="flex flex-wrap gap-2">
-                  {member.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-medium px-2.5 py-1 rounded-lg"
-                      style={{
-                        background: 'rgba(108,71,255,0.12)',
-                        color: '#A594FF',
-                        border: '1px solid rgba(108,71,255,0.20)',
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            {TEAM.map((member) => (
+              <TeamCard key={member.initials} member={member} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Культура */}
-      <section
-        className="py-20"
-        style={{ background: '#04030D' }}
-      >
+      {/* ── Culture ── */}
+      <section className="py-20" style={{ background: '#04030D' }}>
         <div className="container mx-auto px-4">
           <h2
             className="font-display text-white text-center mb-12"
@@ -236,34 +271,15 @@ export default function TeamPage() {
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {CULTURE.map((c, i) => (
-              <div
-                key={i}
-                className="text-center p-7 rounded-2xl"
-                style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                }}
-              >
-                <div className="text-4xl mb-4">{c.icon}</div>
-                <h3 className="font-bold text-white mb-2 text-sm">{c.title}</h3>
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: 'rgba(232,230,255,0.50)' }}
-                >
-                  {c.desc}
-                </p>
-              </div>
+            {CULTURE.map((c) => (
+              <CultureCard key={c.title} item={c} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section
-        className="py-16"
-        style={{ background: '#080718' }}
-      >
+      {/* ── CTA ── */}
+      <section className="py-16" style={{ background: '#080718' }}>
         <div className="container mx-auto px-4 text-center">
           <h2
             className="font-display text-white mb-4"
@@ -280,7 +296,7 @@ export default function TeamPage() {
           <Link
             href="/#lead-form"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-2xl
-                       font-bold text-white text-base transition-all duration-300
+                       font-bold text-white text-base transition-opacity duration-300
                        hover:opacity-90"
             style={{
               background: 'linear-gradient(135deg, #6C47FF, #00D4FF)',
@@ -289,9 +305,10 @@ export default function TeamPage() {
           >
             Обсудить проект
             <svg
-              className="w-5 h-5"
-              fill="none"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
+              fill="none"
               stroke="currentColor"
               aria-hidden="true"
             >

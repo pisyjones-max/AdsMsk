@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { Cases }    from '@/components/sections/Cases'
-import { LeadForm } from '@/components/sections/LeadForm'
-import { Footer }   from '@/components/layout/Footer'
+import Link              from 'next/link'
+import { Cases }         from '@/components/sections/Cases'
+import { LeadForm }      from '@/components/sections/LeadForm'
+import { Footer }        from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   title: 'Кейсы — реальные результаты клиентов AdsMsk',
@@ -11,11 +11,19 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://ads.msk.ru/cases' },
   openGraph: {
     title: 'Кейсы AdsMsk — реальные результаты',
-    description: 'CPL −65%, продажи ×3, конверсия +67%. Смотрите кейсы наших клиентов.',
+    description:
+      'CPL −65%, продажи ×3, конверсия +67%. Смотрите кейсы наших клиентов.',
     url: 'https://ads.msk.ru/cases',
     type: 'website',
   },
 }
+
+const STATS = [
+  { value: '120+',  label: 'проектов',        color: '#8B6FFF' },
+  { value: '−65%',  label: 'CPL в среднем',   color: '#00D4FF' },
+  { value: '+335%', label: 'рост продаж',      color: '#00FF94' },
+  { value: '4.9★',  label: 'оценка клиентов', color: '#FFB547' },
+]
 
 function CasesHero() {
   return (
@@ -29,8 +37,8 @@ function CasesHero() {
     >
       <div className="container mx-auto px-4 text-center">
         <nav
-          className="flex justify-center items-center gap-2 text-sm mb-8"
           aria-label="Breadcrumb"
+          className="flex justify-center items-center gap-2 text-sm mb-8"
           style={{ color: 'rgba(232,230,255,0.40)' }}
         >
           <Link
@@ -40,9 +48,10 @@ function CasesHero() {
             Главная
           </Link>
           <svg
-            className="w-4 h-4"
-            fill="none"
+            width="16"
+            height="16"
             viewBox="0 0 24 24"
+            fill="none"
             stroke="currentColor"
             aria-hidden="true"
           >
@@ -81,20 +90,15 @@ function CasesHero() {
         </h1>
 
         <p
-          className="text-lg max-w-xl mx-auto"
+          className="text-lg max-w-xl mx-auto mb-10"
           style={{ color: 'rgba(232,230,255,0.55)' }}
         >
           Не обещания — конкретные результаты. Яндекс.Директ, маркетплейсы,
           Telegram-боты, реклама ВКонтакте.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-6 mt-10">
-          {[
-            { value: '120+',  label: 'проектов',         color: '#8B6FFF' },
-            { value: '−65%',  label: 'CPL в среднем',    color: '#00D4FF' },
-            { value: '+335%', label: 'рост продаж',       color: '#00FF94' },
-            { value: '4.9★',  label: 'оценка клиентов',  color: '#FFB547' },
-          ].map((s) => (
+        <div className="flex flex-wrap justify-center gap-4">
+          {STATS.map((s) => (
             <div
               key={s.label}
               className="text-center px-6 py-4 rounded-2xl"

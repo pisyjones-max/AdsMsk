@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Hero }       from '@/components/sections/Hero'
 import { Metrics }    from '@/components/sections/Metrics'
 import { PainPoints } from '@/components/sections/PainPoints'
@@ -9,7 +10,6 @@ import { Promo }      from '@/components/sections/Promo'
 import { LeadForm }   from '@/components/sections/LeadForm'
 import { Subscribe }  from '@/components/sections/Subscribe'
 import { Footer }     from '@/components/layout/Footer'
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'AdsMsk — Трафик. Автоматизация. Рост продаж.',
