@@ -1,23 +1,9 @@
 'use client';
-import type { Metadata } from 'next'
-import Link              from 'next/link'
-import { Cases }         from '@/components/sections/Cases'
-import { LeadForm }      from '@/components/sections/LeadForm'
-import { Footer }        from '@/components/layout/Footer'
 
-export const metadata: Metadata = {
-  title: 'Кейсы — реальные результаты клиентов AdsMsk',
-  description:
-    'Кейсы AdsMsk: Яндекс.Директ, Wildberries/Ozon, Telegram-боты, реклама ВКонтакте. Реальные цифры: CPL, ROI, рост продаж.',
-  alternates: { canonical: 'https://ads.msk.ru/cases' },
-  openGraph: {
-    title: 'Кейсы AdsMsk — реальные результаты',
-    description:
-      'CPL −65%, продажи ×3, конверсия +67%. Смотрите кейсы наших клиентов.',
-    url: 'https://ads.msk.ru/cases',
-    type: 'website',
-  },
-}
+import Link      from 'next/link'
+import { Cases }    from '@/components/sections/Cases'
+import { LeadForm } from '@/components/sections/LeadForm'
+import { Footer }   from '@/components/layout/Footer'
 
 const STATS = [
   { value: '120+',  label: 'проектов',        color: '#8B6FFF' },

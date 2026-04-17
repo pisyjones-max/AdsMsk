@@ -1,22 +1,8 @@
 'use client';
-import type { Metadata } from 'next'
+
 import Link              from 'next/link'
 import { LeadForm }      from '@/components/sections/LeadForm'
 import { Footer }        from '@/components/layout/Footer'
-
-export const metadata: Metadata = {
-  title: 'Команда AdsMsk — специалисты по рекламе и автоматизации',
-  description:
-    'Команда AdsMsk: специалисты по Яндекс.Директ, ВКонтакте, Telegram-ботам, маркетплейсам Wildberries/Ozon и веб-разработке. Москва.',
-  alternates: { canonical: 'https://ads.msk.ru/team' },
-  openGraph: {
-    title: 'Команда AdsMsk',
-    description:
-      'Специалисты-практики с реальными кейсами и измеримыми результатами.',
-    url: 'https://ads.msk.ru/team',
-    type: 'website',
-  },
-}
 
 const TEAM = [
   {
