@@ -1,14 +1,8 @@
-import type { Metadata } from 'next'
+'use client';
+
 import Link from 'next/link'
 import { LeadForm } from '@/components/sections/LeadForm'
 import { Footer }   from '@/components/layout/Footer'
-
-export const metadata: Metadata = {
-  title: 'Автопостинг и ведение соцсетей — Telegram и ВКонтакте | AdsMsk',
-  description:
-    'Автоматизация публикаций в Telegram и ВКонтакте. Контент-план, массовое ведение аккаунтов. Вы ведёте бизнес — мы ведём контент. AdsMsk.',
-  alternates: { canonical: 'https://ads.msk.ru/services/autoposting' },
-}
 
 const FEATURES = [
   { icon: '📲', title: 'Автопостинг Telegram',    desc: 'Планирование и автоматическая публикация в каналы и группы Telegram.' },

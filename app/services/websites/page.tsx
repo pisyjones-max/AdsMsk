@@ -1,14 +1,8 @@
-import type { Metadata } from 'next'
+'use client';
+
 import Link from 'next/link'
 import { LeadForm } from '@/components/sections/LeadForm'
 import { Footer }   from '@/components/layout/Footer'
-
-export const metadata: Metadata = {
-  title: 'Разработка сайтов и лендингов в Москве — Next.js, быстро | AdsMsk',
-  description:
-    'Разрабатываем сайты и лендинги на Next.js: Lighthouse 90+, SEO-структура, высокая конверсия. Лендинги под рекламу, интернет-магазины. AdsMsk Москва.',
-  alternates: { canonical: 'https://ads.msk.ru/services/websites' },
-}
 
 const FEATURES = [
   { icon: '⚡', title: 'Высокая скорость',         desc: 'Next.js + Tailwind. Lighthouse 90+. LCP < 2.5 сек. Core Web Vitals в норме.' },

@@ -1,14 +1,8 @@
-import type { Metadata } from 'next'
+'use client';
+
 import Link from 'next/link'
 import { LeadForm } from '@/components/sections/LeadForm'
 import { Footer }   from '@/components/layout/Footer'
-
-export const metadata: Metadata = {
-  title: 'Разработка Telegram-ботов для бизнеса — продажи 24/7 | AdsMsk',
-  description:
-    'Разрабатываем Telegram-ботов: для продаж, консультаций, записи, обработки заявок 24/7. Интеграция с CRM. Конверсия +67%. AdsMsk Москва.',
-  alternates: { canonical: 'https://ads.msk.ru/services/telegram-bots' },
-}
 
 const BOT_TYPES = [
   { icon: '🛒', title: 'Бот для продаж',          desc: 'Каталог товаров, корзина, оплата прямо в Telegram. Работает без менеджера.' },

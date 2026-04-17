@@ -1,15 +1,9 @@
-import type { Metadata } from 'next'
+'use client';
+
 import Link from 'next/link'
 import { LeadForm } from '@/components/sections/LeadForm'
 import { Trust }    from '@/components/sections/Trust'
 import { Footer }   from '@/components/layout/Footer'
-
-export const metadata: Metadata = {
-  title: 'Настройка Яндекс.Директ в Москве — поиск и РСЯ | AdsMsk',
-  description:
-    'Настройка и ведение Яндекс.Директ: поиск, РСЯ, сбор семантики, написание объявлений. Снижаем стоимость заявки. Первые заявки через 72 часа. Москва и вся РФ.',
-  alternates: { canonical: 'https://ads.msk.ru/services/context-ads' },
-}
 
 const FEATURES = [
   { icon: '🔍', title: 'Сбор семантики',        desc: 'Собираем все ключевые запросы, минус-слова. Ни один целевой клиент не пройдёт мимо.' },

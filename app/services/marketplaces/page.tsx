@@ -1,14 +1,8 @@
-import type { Metadata } from 'next'
+'use client';
+
 import Link from 'next/link'
 import { LeadForm } from '@/components/sections/LeadForm'
 import { Footer }   from '@/components/layout/Footer'
-
-export const metadata: Metadata = {
-  title: 'Продвижение на Wildberries и Ozon — выход и рост продаж | AdsMsk',
-  description:
-    'Выход на Wildberries и Ozon под ключ: регистрация, SEO карточек, контент, юнит-экономика, аналитика, реклама. Рост продаж ×3 за 90 дней. AdsMsk Москва.',
-  alternates: { canonical: 'https://ads.msk.ru/services/marketplaces' },
-}
 
 const FEATURES = [
   { icon: '🚀', title: 'Выход на маркетплейс',    desc: 'Регистрация аккаунта, заполнение карточек, загрузка первых товаров.' },

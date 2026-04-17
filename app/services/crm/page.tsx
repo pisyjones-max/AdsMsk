@@ -1,14 +1,8 @@
-import type { Metadata } from 'next'
+'use client';
+
 import Link from 'next/link'
 import { LeadForm } from '@/components/sections/LeadForm'
 import { Footer }   from '@/components/layout/Footer'
-
-export const metadata: Metadata = {
-  title: 'Внедрение CRM и автоматизация продаж — amoCRM, Битрикс24 | AdsMsk',
-  description:
-    'Внедряем CRM-системы, автоматизируем обработку заявок, интегрируем с Telegram-ботами и рекламой. До 80% рутины автоматически. AdsMsk Москва.',
-  alternates: { canonical: 'https://ads.msk.ru/services/crm' },
-}
 
 const FEATURES = [
   { icon: '🗂', title: 'Внедрение CRM',           desc: 'amoCRM, Битрикс24 — настройка воронки, стадий, полей, прав доступа.' },

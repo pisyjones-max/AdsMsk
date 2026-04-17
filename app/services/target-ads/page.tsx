@@ -1,14 +1,8 @@
-import type { Metadata } from 'next'
+'use client';
+
 import Link from 'next/link'
 import { LeadForm } from '@/components/sections/LeadForm'
 import { Footer }   from '@/components/layout/Footer'
-
-export const metadata: Metadata = {
-  title: 'Таргетированная реклама ВКонтакте — настройка и ведение | AdsMsk',
-  description:
-    'Настройка таргетированной рекламы ВКонтакте: аудитории, креативы, воронки. CPL от 180 ₽. Работаем без Facebook и Instagram. AdsMsk Москва.',
-  alternates: { canonical: 'https://ads.msk.ru/services/target-ads' },
-}
 
 const FEATURES = [
   { icon: '🎯', title: 'Настройка аудиторий',    desc: 'Таргетинг по интересам, Look-alike, ретаргетинг, базы клиентов.' },
